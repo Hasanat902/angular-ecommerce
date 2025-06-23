@@ -7,7 +7,7 @@ import { Cart } from '../../../services/cart';
   selector: 'app-product-card',
   imports: [PrimaryButton],
   template: `
-    <div class="bg-white shadow-md rounded-xl p-6 flex flex-col gap-6 relative">
+    <div class="bg-white shadow-md rounded-xl p-6 flex flex-col gap-6 relative h-full">
       <div class="mx-auto">
         <img
           [src]="product().image"

@@ -6,7 +6,7 @@ import { ProductCard } from './product-card/product-card';
   selector: 'app-products-list',
   imports: [ProductCard],
   template: `
-    <div class="p-8 grid grid-cols-2 gap-4">
+    <div class="p-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
       @for(product of products(); track product.id) {
       <app-product-card [product]="product" />
       }
@@ -18,14 +18,14 @@ export class ProductsList {
   products = signal<Product[]>([
     {
       id: 1,
-      title: 'Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops',
+      title: 'Fjallraven - Foldsack No. 1 Backpack',
       price: 109.95,
       image: 'https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg',
       stock: 15,
     },
     {
       id: 2,
-      title: 'Mens Casual Premium Slim Fit T-Shirts ',
+      title: 'Mens Casual Premium Slim Fit T-Shirts',
       price: 22.3,
       image:
         'https://fakestoreapi.com/img/71-3HjGNDUL._AC_SY879._SX._UX._SY._UY_.jpg',
@@ -44,6 +44,21 @@ export class ProductsList {
       price: 15.99,
       image: 'https://fakestoreapi.com/img/71YXzeOuslL._AC_UY879_.jpg',
       stock: 9,
+    },
+    {
+      id: 5,
+      title: "BIYLACLESEN Women's Jacket Winter Coats",
+      price: 56.99,
+      image: 'https://fakestoreapi.com/img/51Y5NI-I5jL._AC_UX679_.jpg',
+      stock: 0,
+    },
+    {
+      id: 6,
+      title:
+        "Women's Moto Biker Jacket",
+      price: 29.95,
+      image: 'https://fakestoreapi.com/img/81XH0e8fefL._AC_UY879_.jpg',
+      stock: 5,
     },
   ]);
 }
