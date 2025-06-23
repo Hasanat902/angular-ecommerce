@@ -6,7 +6,7 @@ import { Product } from '../models/products.model';
 })
 export class Cart {
   cart = signal<Product[]>([
-     {
+    {
       id: 1,
       title: 'Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops',
       price: 109.95,
@@ -25,6 +25,10 @@ export class Cart {
 
   addToCart(product: Product) {
     this.cart.set([...this.cart(), product]);
+  }
+
+  removeFromCart(id: number) {
+    this.cart.set(this.cart().filter((p) => p.id !== id));
   }
 
   constructor() {}

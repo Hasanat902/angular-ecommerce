@@ -1,6 +1,7 @@
-import { Component, input } from '@angular/core';
+import { Component, inject, input } from '@angular/core';
 import { Product } from '../../../models/products.model';
 import { Button } from '../../../components/button/button';
+import { Cart } from '../../../services/cart';
 
 @Component({
   selector: 'app-cart-item',
@@ -13,11 +14,12 @@ import { Button } from '../../../components/button/button';
         <span class="text-sm">{{ '$' + item().price }}</span>
       </div>
       <div class="flex-1"></div>
-      <app-button label="Remove" />
+      <app-button label="Remove" (btnClicked)="cartService.removeFromCart(item().id)" />
     </div>
   `,
   styles: ``,
 })
 export class CartItem {
+  cartService = inject(Cart);
   item = input.required<Product>();
 }
